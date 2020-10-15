@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
   }
 
   //小數部分
-  for(double i = 1 ; i <= 4 ; i++) {
+  for(double i = 1 ; i <= 6 ; i++) {
     for(double j = lower ; j <= upper ; j = j + 1/pow(10,i)) {
       if(j * j <= a && ((j + 1/pow(10,i))*(j + 1/pow(10,i))) >= a) {
         lower = j;
