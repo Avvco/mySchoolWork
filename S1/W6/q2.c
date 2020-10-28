@@ -3,7 +3,7 @@
 
 int main(int argc, char const *argv[]) {
 
-
+//end condition unknow
   while (1) {
     int a[3];
 
