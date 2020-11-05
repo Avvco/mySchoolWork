@@ -4,7 +4,7 @@
 int dataExist(int, int, int[]);  //use as boolean, 0 represent doesn't exist, 1 represent exist.
 
 int main(int argc, char const *argv[]) {
-  int row, column, non_zero_count;
+  int row, column, non_zero_count, temp;
 
   scanf("%d%d%d", &row, &column, &non_zero_count);
 
@@ -27,13 +27,16 @@ int main(int argc, char const *argv[]) {
       int exist = 0;
       for (int k = 0; k < non_zero_count; k++) {
         if(dataExist(i, j, non_zero[k]) == 1) {
-          printf("%d ", non_zero[k][2]);
+          temp = non_zero[k][2];
+          //printf("%d ", non_zero[k][2]);
           exist = 1;
-          break;
+          //break;
         }
       }
       if(exist == 0) {
         printf("0 ");
+      } else {
+        printf("%d ", temp);
       }
     }
     printf("\n");
