@@ -7,7 +7,6 @@ char *replace(char *source, char const *pattern, char const *replacement)
     char *substring;
     static char *last_source;
     static char *last_replacement;
-    int isNull = 0;
 
     if(source != NULL && (substring = strstr(source, pattern)) == NULL) {
         last_source = source;
@@ -16,7 +15,6 @@ char *replace(char *source, char const *pattern, char const *replacement)
 
     if(source == NULL) {
         source = last_source;
-        isNull = 1;
         substring = strstr(last_replacement, pattern);
         if(substring == NULL) {
             return source;
@@ -30,9 +28,9 @@ char *replace(char *source, char const *pattern, char const *replacement)
 
     memcpy(substring + replacement_len, substring + pattern_len, tail_len * sizeof(char));
     memcpy(substring, replacement, replacement_len * sizeof(char));
-    if(isNull == 0) {
-        last_source = source;
-    }
+
+    last_source = source;
+
     return source;
 }
 
