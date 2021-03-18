@@ -1,5 +1,5 @@
 // http://134.208.3.66/problem/PR109-2Q15
-
+// Accepted
 #include <iostream>
 #include <cmath>
 class Point {
@@ -121,8 +121,9 @@ class Segment {
       }
 
       double d = this -> a * s.getB() - s.getA() * this -> b;
-      std::cout << d << " ";
-      std::cout << this -> a << " " << s.getB() << " " << s.getA() << " " << this -> b;
+      //std::cout << d << " ";
+      //std::cout << this -> a << " " << s.getB() << " " << s.getA() << " " << this -> b;
+/*
       if(a == 0 && d == 0) {
         if(inside(point1.getY(), point2.getY(), s.getpt1().getY())) {
           pt -> setX(point1.getX());
@@ -138,13 +139,15 @@ class Segment {
           return pt;
         }
       }
-
+*/
 
 
       if(d == 0) return NULL;
       float interX = (this -> b * s.getC() - s.getB() * this -> c) / d;
       float interY = (this -> c * s.getA() - s.getC() * this -> a) / d;
-
+      //std::cout << this -> c << "  " << s.getA() << "  " << s.getC() << " " << this -> a << " " <<d<<std::endl;
+      if(interX == -0) interX = 0;
+      if(interY == -0) interY = 0;
       if(inside(this -> point1.getX(), this -> point2.getX(), interX) && inside(this -> point1.getY(), this -> point2.getY(), interY)
         && inside(s.getpt1().getX(), s.getpt2().getX(), interX) && inside(s.getpt1().getY(), s.getpt2().getY(), interY)) {
         pt -> setX(interX);
@@ -183,7 +186,7 @@ class Segment {
 
 int main(int argc, char const *argv[]) {
   Point p1(0, 0);
-  Point p2(2,0);
+  Point p2(2, 0);
   Point p3(1, 1);
   Point p4(1, -1);
   Segment s1(p1,p2);
