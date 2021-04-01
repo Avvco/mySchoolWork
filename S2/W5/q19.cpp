@@ -5,37 +5,55 @@
 #include <string>
 
 using namespace std;
+
+class ListNode {
+  public:
+    ListNode *next;
+    ListNode *prev;
+    ListNode(int _value) {
+    this -> value = value;
+    this -> next = NULL;
+    this -> prev = NULL;
+  }
+
+  int getValue() {
+    return this -> value;
+  }
+
+  private:
+    int value;
+};
+
 class Digit
 {
+  public:
 
-    public:
+    // Constructor
+    Digit() {
+      this -> digit = 0;
+    }
 
-      // Constructor
-      Digit() {
-        this -> digit = 0;
-      }
+    // Constructor
+    Digit(int digit) {
+        if(digit >= 0 && digit <= 9) {
+            this -> digit = digit;
+        }else {
+            this -> digit = 0;
+        }
+    }
+    void setDigit(int digit) {
+        if(digit >= 0 && digit <= 9){
+            this -> digit = digit;
+        }else {
+            this -> digit = 0;
+        }
+    }
+    int getDigit() {
+       return this -> digit;
+    }
 
-      // Constructor
-      Digit(int digit) {
-          if(digit >= 0 && digit <= 9) {
-              this -> digit = digit;
-          }else {
-              this -> digit = 0;
-          }
-      }
-      void setDigit(int digit) {
-          if(digit >= 0 && digit <= 9){
-              this -> digit = digit;
-          }else {
-              this -> digit = 0;
-          }
-      }
-      int getDigit() {
-         return this -> digit;
-      }
-
-    private:
-      int digit;
+  private:
+    int digit;
 };
 class IntNumber
 {
@@ -87,7 +105,19 @@ class IntNumber
     }
 
     IntNumber * add(IntNumber * intNumber) {
+      ListNode * a = NULL;
+      ListNode * b = NULL;
+      ListNode * sumNode = NULL;
       //cout << "atol" << atol(number) << " " << atol(intNumber -> getNumber());
+      for(int i = strlen(number) - 1 ; i >= 0 ; i--) {
+        int tmp = number[i] - '0';
+        if(!a) {
+          a = new ListNode(tmp);
+        } else {
+
+        }
+      }
+
       long long int sum = atoll(number) + atoll(intNumber -> getNumber());
       //cout <<sum<<endl;
       string _sum = to_string(sum);

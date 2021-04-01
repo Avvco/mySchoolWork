@@ -68,8 +68,8 @@ class Fraction
     }
 
     Fraction &operator=(const Fraction &f)  {
-      setDenominator(f.getNumerator());
-		  setNumerator(f.getDenominator());
+      setDenominator(f.getDenominator());
+		  setNumerator(f.getNumerator());
 		  return *this;
     }
 
