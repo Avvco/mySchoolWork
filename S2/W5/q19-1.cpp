@@ -147,21 +147,18 @@ class IntNumber
       } else {
         dNode * firstTail = getTail();
         dNode * secondTail = intNumber -> getTail();
-        //bool equal = true;
         while(firstTail) {
           if(firstTail -> digit.getDigit() > secondTail -> digit.getDigit()) {
             firstHead -> node = getHead();
             firstHead -> minus = getMinus();
             secondHead -> node = intNumber -> getHead();
             secondHead -> minus = intNumber -> getMinus();
-            //equal = false;
             break;
           } else if(firstTail -> digit.getDigit() < secondTail -> digit.getDigit()) {
             firstHead -> node = intNumber -> getHead();
             firstHead -> minus = intNumber -> getMinus();
             secondHead -> node = getHead();
             secondHead -> minus = getMinus();
-            //equal = false;
             break;
           }
           firstTail = firstTail -> next;
@@ -220,9 +217,8 @@ class IntNumber
     }
 
     dNode * calculation(dNode * f, dNode * s, char sign) {
-      //dNode * tail;
-      dNode * head;
-      dNode * last;
+      dNode * head = NULL;
+      dNode * last = NULL;
       switch(sign) {
         case '+' : {
           int next = 0;
