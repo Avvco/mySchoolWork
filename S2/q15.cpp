@@ -72,6 +72,13 @@ class Segment {
       this -> point2 = p2;
     }
 
+    Point getP1() {
+      return point1;
+    }
+    Point getP2() {
+      return point2;
+    }
+
 
     float getLength() {
       return point1.mypow(point1.mypow((point1.getX() - point2.getX()), 2) + point1.mypow((point1.getY() - point2.getY()), 2), 0.5);
@@ -82,6 +89,7 @@ class Segment {
     Point point2;
 };
 
+/*
 int main(int argc, char const *argv[]) {
   Point p1(1.6, 7.9);
   Point p2(5.7,8.4);
@@ -90,3 +98,4 @@ int main(int argc, char const *argv[]) {
 
   return 0;
 }
+*/
