@@ -8,6 +8,17 @@ public:
   }
   Shape(Segment * s, int x) { // to construct a shape with a serial of segment. Throw an invalid_argument if the segment can not construct a close path.
     for(int i = 0 ; i < x ; i++) {
+        bool invalid = true;
+        for(int j = 0 ; j < x ; j++) {
+            if(i == j) continue;
+            if(s[i].getP2().getX() == s[j].getP1().getX() && s[i].getP2().getY() == s[j].getP1().getY()) invalid = false;
+        }
+        if(invalid) {
+            throw std::invalid_argument("Invalid syntax.");
+            break;
+        }
+    }
+    for(int i = 0 ; i < x ; i++) {
       this -> seg[i] = s[i];
     }
     this -> edgeCount = x;
