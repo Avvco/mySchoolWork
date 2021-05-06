@@ -20,7 +20,7 @@ class Shape {
       return seg[x];
     }
 
-  private:
+  protected:
     Segment seg[10];
     int edgeCount;
 };
@@ -41,7 +41,14 @@ class Rectangle : public Shape {
     }
 
     float getArea() {
-      return 1;
+      float a = seg[0].getLength();
+      float b = seg[0].getLength();
+      for(int i = 1 ; i < 4 ; ++ i) {
+          if (seg[i].getLength() != a) {
+            b = seg[i].getLength();
+          }
+      }
+      return a * b;
     }
 };
 

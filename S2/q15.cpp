@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cmath>
+using namespace std;
 class Point {
   public:
     // Constructor
@@ -55,7 +56,7 @@ class Point {
 };
 
 
-class Segment {
+class Segment { // a line
   public:
 
     // Constructor
