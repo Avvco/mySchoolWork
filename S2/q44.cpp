@@ -17,8 +17,7 @@ class Set
       copy(s.element, s.element + count, element);
     }
 
-    int add(const int x) {  // TODO should be T here ?
-      cout << "zzz" << x <<endl;
+    int add(const T x) { 
       for (int i = 0 ; i < count ; i++) {
         if(element[i] == x) return 0;
       }
