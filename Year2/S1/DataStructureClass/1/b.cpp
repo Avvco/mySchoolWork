@@ -136,7 +136,7 @@ void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
 
 int main()
 {
-    int count = 5;
+    int count = 5; // Number of disks
     for(int i = count ; i > 0 ; i--) {
       Tower *current = new Tower(i, A);
       A->setNext(current);
@@ -146,7 +146,7 @@ int main()
     printCurrent('B');
     printCurrent('C');
     cout << endl;
-    int n = count; // Number of disks
+    int n = count;
     towerOfHanoi(n, 'A', 'C', 'B'); // A, B and C are names of rods
     return 0;
 }
