@@ -15,14 +15,14 @@ public:
       tag = false;
     }
     bool isFull() {
-      return rear % SIZE == front;
+      return rear % SIZE == front && tag;
     }
     bool isEmpty() {
       return front == rear;
     }
     int enqueue(int data)
     {
-      if ((isFull() && tag == true) || (rear == SIZE - 1 && front == -1)) {
+      if (isFull() || (rear == SIZE - 1 && front == -1)) {
         return -1;
       } else {
         rear = (rear + 1) % SIZE;
