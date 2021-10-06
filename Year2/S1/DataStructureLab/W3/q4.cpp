@@ -78,7 +78,7 @@ int main()
 			else
 			{
 				cout<<"Failed to enqueue data into queue."<<endl;
-			}
+			} 
 		}
 		else if(command.compare("dequeue") == 0)
 		{
