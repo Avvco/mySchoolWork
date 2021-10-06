@@ -18,7 +18,7 @@ public:
       return rear % SIZE == front && tag;
     }
     bool isEmpty() {
-      return front == rear;
+      return front == rear && !tag;
     }
     int enqueue(int data)
     {
@@ -33,7 +33,7 @@ public:
     }
     int *dequeue()
     {
-      if (isEmpty() && tag == false) {
+      if (isEmpty()) {
         return NULL;
       }else {
         front = (front + 1) % SIZE;
