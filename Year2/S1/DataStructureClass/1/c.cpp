@@ -39,7 +39,7 @@ int main(int argc, char const *argv[]) {
 
     str.erase(remove(str.begin(), str.end(), ' '), str.end());
     for (int i = 0; i < str.length(); i++) {
-      d.find_add(str[i]);
+      d.find_add(tolower(str[i]));
     }
     d.print();
   }
