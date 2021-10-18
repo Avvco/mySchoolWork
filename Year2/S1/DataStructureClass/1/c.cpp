@@ -9,13 +9,13 @@ class Dictionary {
         alpha.insert(pair<char, int>(char(i), 0));
       }
     }
-    find_add(char c) {
+    int find_add(char c) {
       map<char, int>::iterator iter;
       iter = alpha.find(c);
       iter -> second++;
       return 0;
     }
-    print() {
+    void print() {
       for (const auto& _alpha : alpha) {
         if(_alpha.second == 0) continue;
 
@@ -25,7 +25,7 @@ class Dictionary {
         }
          cout << _alpha.second << endl;
       }
-      return 0;
+      return;
     }
   private:
     map<char, int> alpha;
