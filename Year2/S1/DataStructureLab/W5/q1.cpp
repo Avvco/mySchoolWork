@@ -7,8 +7,7 @@ using namespace std;
 class Node
 {
   public:
-  	Node()
-  	{
+  	Node() {
   		data = 0;
   		next = NULL;
   	}
@@ -16,17 +15,14 @@ class Node
   	Node *next;
 };
 
-class Set
-{
+class Set {
   public:
-    Set()
-    {
+    Set() {
       element = NULL;
       start = NULL;
     }
 
-    int addElement(int e)
-    {
+    int addElement(int e) {
       Node *node = new Node();
       node -> data = e;
       if(element == NULL) {
@@ -44,8 +40,7 @@ class Set
       return 1;
     }
 
-    Set *unions(const Set *b)
-    {
+    Set *unions(const Set *b) {
       Set *set = new Set();
       Node *node1 = getElement();
       Node *node2 = b -> getElement();
@@ -60,8 +55,7 @@ class Set
       return set;
     }
 
-    Set *intersections(const Set *b)
-    {
+    Set *intersections(const Set *b) {
       Set *set = new Set();
       Node *node1 = getElement();
       while(node1) {
@@ -77,8 +71,7 @@ class Set
       return set;
     }
 
-    bool equivalent(const Set *b)
-    {
+    bool equivalent(const Set *b) {
       Node *node1 = getElement();
       Node *node2 = b -> getElement();
 
@@ -94,8 +87,7 @@ class Set
       return true;
     }
 
-    void listAll()
-    {
+    void listAll() {
       Node *cur = start;
       while(cur != NULL)
       {
@@ -118,8 +110,7 @@ class Set
     Node *start;
 };
 
-int main()
-{
+int main() {
   Set *a = new Set();
   Set *b = new Set();
   Set *c;
@@ -138,8 +129,10 @@ int main()
   c = a->intersections(b);
   c->listAll();
 
-  if(a->equivalent(b) == 0)
+  if(a->equivalent(b) == 0) {
     cout<<"Not equivalent.\n";
-  else
+  }
+  else {
     cout<<"Equivalent!\n";
+  }
 }
