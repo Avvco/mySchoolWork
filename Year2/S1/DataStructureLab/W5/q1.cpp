@@ -4,15 +4,14 @@
 
 using namespace std;
 
-class Node
-{
+class Node {
   public:
-  	Node() {
-  		data = 0;
-  		next = NULL;
-  	}
-  	int data;
-  	Node *next;
+    Node() {
+      data = 0;
+      next = NULL;
+    }
+    int data;
+    Node *next;
 };
 
 class Set {
