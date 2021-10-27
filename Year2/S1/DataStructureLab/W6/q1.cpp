@@ -107,9 +107,9 @@ class Maze {
             _maze[i][j] = 0;
           }
 
-          cout<<_maze[i][j]<< " ";
+          //cout<<_maze[i][j]<< " ";
         }
-        cout<<endl;
+        //cout<<endl;
       }
       maze = _maze;
   	}
@@ -148,7 +148,6 @@ class Maze {
   	}
 
     void visit(List *list, int x, int y) {
-      //cout<< x << " "<<y<<endl;
       if(x == SIZE - 1 && y == SIZE - 1) {
         list->addElement(SIZE-1, SIZE-1);
         reach = true;
@@ -171,7 +170,6 @@ class Maze {
       if(maze[x][y] == 3) maze[x][y] = 0;
     // ========
       if(reach) {
-        //cout<< x << " "<<y<<endl;
         list -> addElement(x, y);
       }
     }
