@@ -182,7 +182,7 @@ class Maze {
       if(!reach && maze->getDir(RIGHT) && maze->getDir(RIGHT)->getState() == 0) {
         visit(list, maze->getDir(RIGHT), m);
       }
-      //if(maze->getState() == 3) maze->setState(0);
+      if(maze->getState() == 3) maze->setState(0);
     // ========
       if(reach) {
         list -> addElement(maze);
