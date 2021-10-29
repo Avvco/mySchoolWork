@@ -10,6 +10,7 @@ using namespace std;
 #define LEFT 2
 #define RIGHT 3
 
+
 class Grid {
   public:
   	Grid():Grid(0) {}
@@ -51,18 +52,19 @@ class List {
 			return data[top+1];
   	}
   	void printPath() const {
+      cout<<top<<endl;
   		int j;
-  		for(j = top ; j >= 0 ; j--) {
-  			if(data[j] == data[j - 1]->getDir(UP)) {
+  		for(j = top - 1 ; j > 0 ; j--) {
+  			if(data[j - 1] == data[j]->getDir(UP)) {
   				cout<<"UP\n";
   			}
-  			else if(data[j] == data[j - 1]->getDir(DOWN)) {
+  			else if(data[j - 1] == data[j]->getDir(DOWN)) {
   				cout<<"DOWN\n";
   			}
-  			else if(data[j] == data[j - 1]->getDir(LEFT)) {
+  			else if(data[j - 1] == data[j]->getDir(LEFT)) {
   				cout<<"LEFT\n";
   			}
-  			else if(data[j] == data[j - 1]->getDir(RIGHT)) {
+  			else if(data[j - 1] == data[j]->getDir(RIGHT)) {
   				cout<<"RIGHT\n";
   			}
   		}
@@ -79,6 +81,7 @@ class Maze {
   public:
   	Maze() {
   		initMaze(SIZE);
+      reach = false;
   	}
   	/*
   	function initMaze
@@ -106,10 +109,10 @@ class Maze {
           int random = rand() % 100; // 20/100
 
 					// WALL
-          if(random < 90) {
+          if(random < 25) {
             _maze[y][x]->setState(1); // wall
           } else {
-            _maze[y][x]->setState(0); // road
+            //_maze[y][x]->setState(0); // road
           }
           if((y == 0 && x == 0) || (y == s - 1 && x == s-1)) {
             _maze[y][x]->setState(0);
@@ -137,9 +140,9 @@ class Maze {
   	回傳一個 list 包含著路徑的資訊
   	如果找不到路徑的話 list 就會是空的
   	*/
-  	List *getPath() {
+  	List *getPath(Maze *m) {
 			List *list = new List();
-      visit(list, maze);
+      visit(list, maze, m);
       if(list -> getTop() <= 1) return NULL;
       return list;
   	}
@@ -155,29 +158,31 @@ class Maze {
   			j = j->getDir(DOWN);
 
   		}
+      cout<<endl;
   	}
 
-		void visit(List *list, Grid* maze) {
-      if(maze->getDir(RIGHT) == NULL && maze->getDir(DOWN)) {
+		void visit(List *list, Grid* maze, Maze *m) {
+      maze -> setState(3);
+      m->printMaze();
+      if(maze->getDir(RIGHT) == NULL && maze->getDir(DOWN) == NULL) {
         list->addElement(maze);
         reach = true;
         return;
       }
-      maze -> setState(3);
     // =========
       if(!reach && maze->getDir(UP) && maze->getDir(UP)->getState() == 0) {
-        visit(list, maze->getDir(UP));
+        visit(list, maze->getDir(UP), m);
       }
       if(!reach && maze->getDir(DOWN) && maze->getDir(DOWN)->getState() == 0) {
-        visit(list, maze->getDir(DOWN));
+        visit(list, maze->getDir(DOWN), m);
       }
       if(!reach && maze->getDir(LEFT) && maze->getDir(LEFT)->getState() == 0) {
-        visit(list, maze->getDir(LEFT));
+        visit(list, maze->getDir(LEFT), m);
       }
       if(!reach && maze->getDir(RIGHT) && maze->getDir(RIGHT)->getState() == 0) {
-        visit(list, maze->getDir(RIGHT));
+        visit(list, maze->getDir(RIGHT), m);
       }
-      if(maze->getState() == 3) maze->setState(0);
+      //if(maze->getState() == 3) maze->setState(0);
     // ========
       if(reach) {
         list -> addElement(maze);
@@ -187,11 +192,13 @@ class Maze {
   	Grid *maze;
 		bool reach;
 };
-
+Maze *ma;
 int main() {
+  srand(time(NULL));
 	Maze *maze = new Maze();
+  ma = maze;
 	maze->printMaze();
-  List *list = maze->getPath();
+  List *list = maze->getPath(maze);
   if(!list) {
     cout<<"No path"<<endl;
   }else {

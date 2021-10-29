@@ -56,7 +56,7 @@ class List {
   	void printList() {
   		int j;
 
-  		for(j = top;j >= 0;j--) {
+  		for(j = top - 1 ; j >= 0;j--) {
   			cout<<"("<<data[j].getRow()<<", "<<data[j].getCol()<<")"<<endl;
   		}
   	}
@@ -168,6 +168,7 @@ class Maze {
     // ========
       if(reach) {
         list -> addElement(x, y);
+        maze[x][y] = 4;
       }
     }
   private:
