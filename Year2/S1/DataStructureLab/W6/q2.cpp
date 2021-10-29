@@ -106,7 +106,7 @@ class Maze {
           int random = rand() % 100; // 20/100
 
 					// WALL
-          if(random < 25) {
+          if(random < 90) {
             _maze[y][x]->setState(1); // wall
           } else {
             _maze[y][x]->setState(0); // road
@@ -140,7 +140,7 @@ class Maze {
   	List *getPath() {
 			List *list = new List();
       visit(list, maze);
-      if(list -> getTop() == 0) return NULL;
+      if(list -> getTop() <= 1) return NULL;
       return list;
   	}
   	void printMaze() const {
@@ -191,5 +191,10 @@ class Maze {
 int main() {
 	Maze *maze = new Maze();
 	maze->printMaze();
-	maze->getPath()->printPath();
+  List *list = maze->getPath();
+  if(!list) {
+    cout<<"No path"<<endl;
+  }else {
+    list->printPath();
+  }
 }

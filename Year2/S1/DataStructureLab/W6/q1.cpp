@@ -55,9 +55,7 @@ class List {
   	}
   	void printList() {
   		int j;
-      if(top == 0) {
-        cout<<"NULL";
-      }
+
   		for(j = top;j >= 0;j--) {
   			cout<<"("<<data[j].getRow()<<", "<<data[j].getCol()<<")"<<endl;
   		}
@@ -91,7 +89,7 @@ class Maze {
   	*/
   	void initMaze(int s) {
       int **_maze = new int*[s];
-      for (int i = 0; i < s; ++i) {
+      for (int i = 0; i < s; i++) {
         _maze[i] = new int[s];
       }
       for (int i = 0; i < s; i++) {
@@ -107,9 +105,9 @@ class Maze {
             _maze[i][j] = 0;
           }
 
-          //cout<<_maze[i][j]<< " ";
+          cout<<_maze[i][j]<< " ";
         }
-        //cout<<endl;
+        cout<<endl;
       }
       maze = _maze;
   	}
@@ -125,9 +123,8 @@ class Maze {
   	*/
   	List *getPath() {
       List *list = new List();
-
       visit(list, 0, 0);
-      if(list -> getTop() == 0) return NULL;
+      if(list -> getTop() <= 1) return NULL;
       return list;
   	}
   	void printMaze() {
@@ -182,5 +179,11 @@ int main() {
   srand(time(NULL));
 	Maze *maze = new Maze();
 	maze->printMaze();
-	maze->getPath()->printList();
+	List *list = maze->getPath();
+  if(!list) {
+    cout<<"No path"<<endl;
+  }else {
+    list->printList();
+  }
+
 }
