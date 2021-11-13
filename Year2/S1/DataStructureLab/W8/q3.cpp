@@ -38,16 +38,16 @@ public:
       return;
     }
     cout << root[current] << endl;
-    inorder(current * 2 + 2);
-    inorder(current * 2 + 1);
+    preorder(current * 2 + 2);
+    preorder(current * 2 + 1);
 	}
 	void postorder() {
     int current = 0;
     if(root[current] == -1) {
       return;
     }
-    inorder(current * 2 + 2);
-    inorder(current * 2 + 1);
+    postorder(current * 2 + 2);
+    postorder(current * 2 + 1);
     cout << root[current] << endl;
 	}
 	void levelorder() {
@@ -93,15 +93,15 @@ private:
       return;
     }
     cout << root[current] << endl;
-    inorder(current * 2 + 2);
-    inorder(current * 2 + 1);
+    preorder(current * 2 + 2);
+    preorder(current * 2 + 1);
   }
   void postorder(int current) {
     if(root[current] == -1) {
       return;
     }
-    inorder(current * 2 + 2);
-    inorder(current * 2 + 1);
+    postorder(current * 2 + 2);
+    postorder(current * 2 + 1);
     cout << root[current] << endl;
   }
 };
