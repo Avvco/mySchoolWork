@@ -1,3 +1,5 @@
+// https://zh.puzzle-nurikabe.com/
+
 #include <iostream>
 
 using namespace std;
@@ -29,7 +31,7 @@ class GridType {
     }
 
   private:
-    string type; // accept wall, number, dot
+    string type; // accept value:  wall, number, dot
     int visit = 0; // 0: not visited, 1: visited, 2: visited this time
     int number = 0;
 };
@@ -84,7 +86,7 @@ class Nurikabe {
     bool checkWall() {
       int x = getFirstwall(0);
       int y = getFirstwall(1);
-      if(x > size || y > size) return true;
+      if(x > size || y > size) return false;
       visitWall(x, y);
       for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
@@ -108,7 +110,6 @@ class Nurikabe {
     }
 
     int getFirstwall(int mode) {// x, y
-      struct result {int x; int y;};
       for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
           if(grid[i][j].getType() == "wall") {
@@ -118,7 +119,6 @@ class Nurikabe {
               return j;
             }
           }
-
         }
       }
       return size + 1;
