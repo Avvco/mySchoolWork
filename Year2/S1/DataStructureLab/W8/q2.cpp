@@ -1,3 +1,5 @@
+// tree using 2D array
+
 #include <bits/stdc++.h>
 
 using namespace std;
