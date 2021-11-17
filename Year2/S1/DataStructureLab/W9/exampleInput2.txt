@@ -1,0 +1,23 @@
+20
+1w2.w3..w3.w1w3..w2.
+wwwwwwwwww.wwwwwwwww
+3..w3w3.w1w1w.w2.w3.
+wwww..w.wwww4.www2w.
+3w2.wwww3w1w.w3.w.ww
+..ww4w2w.ww1www.ww2w
+ww2w.w.w.w1w2w1w1w.w
+2w.w..wwwwww.wwwwwww
+.wwwww3..w1ww2w3.w1w
+w3w4.wwww2w3w.ww.ww.
+w..w..w1w.w.ww3.ww3.
+wwwwww1wwww.w1w.w3ww
+2.w..ww4..wwwwwww.w1
+ww5.w2www.w3w3..w.ww
+2w.ww.w.www.wwww.w1w
+.ww6.w4.w2w.w1w3.www
+w2w..w.ww.ww1w7ww1w1
+w.ww.ww4ww1www..wwww
+ww1w..w...w2.w....w2
+1wwwwwwwwwwwwwwwwww.
+
+// expect output: 0
