@@ -1,5 +1,4 @@
-// still under construction
-// function "encode" is not working properly yet
+// function "encode" is still not working properly yet
 
 #include <bits/stdc++.h>
 
@@ -24,23 +23,19 @@ class Node
 class Stack
 {
     public :
-        Stack() : top(NULL), counts(0) {}
+        inline Stack() : top(NULL), counts(0) {}
         int push(char d)
         {
             Node *node = new Node() ;
             node -> setData(d) ;
-            if(isEmpty())
-            {
-                setTop(node) ;
-                countsPP() ;
-            }
+            if(isEmpty()) setTop(node) ;
             else
             {
                 node -> setPrev(peek()) ;
                 peek() -> setNext(node) ;
                 setTop(node) ;
-                countsPP() ;
             }
+            countsPP() ;
             return 1 ;
         }
         int pop()
@@ -74,7 +69,7 @@ class Stack
         inline void countsSS() { counts-- ; }
 } ;
 
-char *encode(char *str)
+char *encode(char *str) // Thanks to 小紅
 {
     char *front = new char[1000] ;
     char *end = new char[1000] ;
@@ -115,7 +110,14 @@ char *encode(char *str)
                     c = c * base ;
                     strcpy(target, a + 1) ;
                     target[strlen(target) - 1] = '\0' ;
+                    l = strlen(target) ;
+                    while(strncmp(target, t, l) == 0)
+                    {
+                        c++ ;
+                        t += l ;
+                    }
                 }
+                else strcpy(target, buf) ;
                 strcpy(end, t) ;
                 strcpy(end, encode(end)) ;
                 sprintf(ans, "%s%d[%s]%s", front, c, target, end) ;
@@ -172,12 +174,26 @@ string decode(string str) // using stack
 
 int main(int argc, char const **argv)
 {
+    cout << "Input \"exit\" to end this program" << endl ;
+    cout << "Input \"encode\" to encode a string " << endl ;
+    cout << "Input \"decode\" to decode a string " << endl ;
+    string cmd ;
     string str ;
-    while(cin >> str)
+    while(1)
     {
-        cout << decode(str) << endl ;
-        char *s = &str[0] ;
-        cout << encode(s) << endl ;
+        cin >> cmd ;
+        if(cmd.compare("exit") == 0) break ;
+        else if(cmd.compare("encode") == 0)
+        {
+            cin >> str ;
+            char *c = &str[0] ;
+            cout << encode(c) << endl ;
+        }
+        else if(cmd.compare("decode") == 0)
+        {
+            cin >> str ;
+            cout << decode(str) << endl ;
+        }
     }
     return 0 ;
 }

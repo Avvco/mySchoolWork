@@ -5,13 +5,13 @@ using namespace std ;
 class Node
 {
     public :
-        Node() : data(NULL), prev(NULL), next(NULL) {}
-        char getData() const { return data ; }
-        Node *getPrev() const { return prev ; }
-        Node *getNext() const { return next ; }
-        char setData(char d) { data = d ; }
-        Node *setPrev(Node *n) { prev = n ; }
-        Node *setNext(Node *n) { next = n ; }
+        inline Node() : data(NULL), prev(NULL), next(NULL) {}
+        inline char getData() const { return data ; }
+        inline Node *getPrev() const { return prev ; }
+        inline Node *getNext() const { return next ; }
+        inline void setData(char d) { data = d ; }
+        inline Node *setPrev(Node *n) { prev = n ; }
+        inline Node *setNext(Node *n) { next = n ; }
     private :
         char data ;
         Node *prev ;
@@ -21,7 +21,7 @@ class Node
 class Stack
 {
     public :
-        Stack() : top(NULL), counts(0) {}
+        inline Stack() : top(NULL), counts(0) {}
         int push(char d)
         {
             Node *node = new Node() ;
@@ -41,8 +41,9 @@ class Stack
             if(isEmpty()) return 0 ;
             else if(getCounts() == 1)
             {
+                Node *node = peek() ;
                 setTop(NULL) ;
-                countsSS() ;
+                delete node ;
             }
             else
             {
@@ -51,9 +52,9 @@ class Stack
                 peek() -> getNext() -> setPrev(NULL) ;
                 peek() -> setNext(NULL) ;
                 delete node ;
-                countsSS() ;
-                return 1 ;
             }
+            countsSS() ;
+            return 1 ;
         }
         int print()
         {
@@ -73,9 +74,9 @@ class Stack
     private :
         Node *top ;
         int counts ;
-        int countsPP() { counts++ ; }
-        int countsSS() { counts-- ; }
-        int setTop(Node *n) { top = n ; }
+        inline int countsPP() { counts++ ; }
+        inline int countsSS() { counts-- ; }
+        inline void setTop(Node *n) { top = n ; }
 } ;
 
 int check(string str)
