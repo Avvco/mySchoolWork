@@ -331,6 +331,9 @@ public:
 	void setRoot(T d) {
     root = new TreeNode<T>(d);
 	}
+	TreeNode<T> *getRoot() {
+		return root;
+	}
 private:
 	TreeNode<T> *root;
   int counter;
@@ -401,8 +404,35 @@ public:
 	/*
 		Convert a general tree to sibling tree
 	*/
-	static BinaryTree<T> *convertFromGeneralTree(Tree<T> *tree) { // TODO here
-
+	static BinaryTree<T> *convertFromGeneralTree(Tree<T> *tree) { // TODO here, by levelOrder
+		BinaryTree<T> *_tree = new BinaryTree<T>();
+    if (tree -> getRoot() == NULL) {
+			return _tree;
+		}
+    queue<pair<TreeNode<T> *, BinaryTreeNode<T>*>> q;
+    _tree -> root = new BinaryTreeNode<T>(tree -> getRoot() -> getData());
+    q.push(pair<TreeNode<T> *, BinaryTreeNode<T> *>(tree->getRoot(), _tree -> root));
+    _tree -> count++;
+    while (!q.empty()) {
+      pair<TreeNode<T> *, BinaryTreeNode<T> *> current = q.front();
+      for (int i = 0 ;; i++) {
+        BinaryTreeNode<T> *_node;
+        try {
+          _node = new BinaryTreeNode<T>((*(current.first))[i]->getData());
+        }catch (out_of_range const&) {
+          break;
+        }
+        if(i != 0) {
+					q.back().second -> setRight(_node);
+				}else {
+					current.second -> setLeft(_node);
+				}
+        q.push(pair<TreeNode<T> *, BinaryTreeNode<T> *>((*(current.first))[i], _node));
+        _tree -> count++;
+      }
+      q.pop();
+    }
+    return _tree;
 	}
 	virtual BinaryTreeNode<T> *insert(T d) {
 		BinaryTreeNode<T> *node = new BinaryTreeNode<T>(d);
@@ -431,9 +461,9 @@ public:
 			else {
         cur->setLeft(node);
       }
-
 		}
 		count ++;
+		return node;
 	}
 	BinaryTreeNode<T> *remove(BinaryTreeNode<T> *n) {
 		if(!exist(n)) {
@@ -575,8 +605,8 @@ private:
 
 int main() {
 	Tree<int> *tree = new Tree<int>();
-	srand(0);
-	int j, k, i;
+	srand(time(NULL));
+	int j, k;
 	for(j = 0 ; j < 20 ; j++) {
 		if(tree->count() == 0) {
       tree->setRoot(rand() % 100);

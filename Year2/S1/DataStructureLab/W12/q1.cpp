@@ -353,7 +353,7 @@ private:
 
 int main() {
 	Tree<int> *tree = new Tree<int>();
-	srand(0);
+	srand(time(NULL  ));
 	int j, k;
 	for(j = 0;j < 20;j ++) {
 		if(tree->count() == 0) {
