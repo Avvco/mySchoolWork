@@ -192,8 +192,9 @@ public:
 		for(k = 0;k < i && j != NULL;k ++) {
       j = j->getNext();
     }
-		if(j == NULL)
+		if(j == NULL) {
 			throw std::invalid_argument("index does not exist.");
+		}
 		return *j;
 	}
 	void print() const {
@@ -353,7 +354,7 @@ private:
 
 int main() {
 	Tree<int> *tree = new Tree<int>();
-	srand(time(NULL  ));
+	srand(time(NULL));
 	int j, k;
 	for(j = 0;j < 20;j ++) {
 		if(tree->count() == 0) {

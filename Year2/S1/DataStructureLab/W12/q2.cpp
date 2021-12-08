@@ -189,8 +189,9 @@ public:
 		for(k = 0;k < i && j != NULL;k ++) {
       j = j->getNext();
     }
-		if(j == NULL)
+		if(j == NULL) {
 			throw std::invalid_argument("index does not exist.");
+		}
 		return *j;
 	}
 	void print() const {
@@ -257,7 +258,6 @@ private:
 
 /*
 	Please finish the Tree class. Tree class respresent a general tree, that means node on this tree may have more than two child node.
-
 */
 template<class T>
 class Tree {
@@ -419,7 +419,7 @@ public:
         BinaryTreeNode<T> *_node;
         try {
           _node = new BinaryTreeNode<T>((*(current.first))[i]->getData());
-        }catch (out_of_range const&) {
+        }catch (std::invalid_argument e) {
           break;
         }
         if(i != 0) {
@@ -616,12 +616,12 @@ int main() {
 			(*tree)[k]->addChild(rand() % 100);
 		}
 	}
-	/*tree->levelOrder();
+	tree->levelOrder();
 	cout<<endl;
 	tree->preorder();
 	cout<<endl;
 	tree->postorder();
-	cout<<endl;*/
+	cout<<endl;
 
 	BinaryTree<int> *binaryTree = BinaryTree<int>::convertFromGeneralTree(tree);
 	binaryTree->print();
