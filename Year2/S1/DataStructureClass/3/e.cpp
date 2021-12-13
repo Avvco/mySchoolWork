@@ -2,38 +2,38 @@
 
 using namespace std;
 
-template <class WHATREE_TREEHE_HELL>
+template <class WHAT_THE_HELL>
 class Node {
 public:
-  Node(WHATREE_TREEHE_HELL data, Node *left, Node *right) {
+  Node(WHAT_THE_HELL data, Node *left, Node *right) {
     this -> data = data;
     this -> left = left;
     this -> right = right;
   }
-  WHATREE_TREEHE_HELL data;
+  WHAT_THE_HELL data;
 	int level;
 	Node *left, *right;
   Node *prev = NULL;
   Node *next = NULL;
 };
 
-template <class I_DONT_KNOW>
+template <class I_AM_TIRED>
 class Linked_List {
   public:
-    Linked_List(Node<I_DONT_KNOW> *node) {
+    Linked_List(Node<I_AM_TIRED> *node) {
       head = node;
       tail = node;
     }
-    void add(Node<I_DONT_KNOW> *node) {
+    void add(Node<I_AM_TIRED> *node) {
       tail -> next = node;
       node -> prev = tail;
       tail = node;
     }
-    Node<I_DONT_KNOW> *getHead() {
+    Node<I_AM_TIRED> *getHead() {
       return head;
     }
     void literal() {
-      Node<I_DONT_KNOW> *current = head;
+      Node<I_AM_TIRED> *current = head;
       while(current) {
         cout << head -> data << " ";
         current = current -> next;
@@ -41,28 +41,28 @@ class Linked_List {
     }
 
   private:
-    Node<I_DONT_KNOW> *head;
-    Node<I_DONT_KNOW> *tail;
+    Node<I_AM_TIRED> *head;
+    Node<I_AM_TIRED> *tail;
 };
 
-template <class I_DONT_KNOW>
+template <class I_WANT_TO_SLEEP>
 class Base_List {
   public:
     Base_List() {
       next = NULL;
       data = NULL;
     }
-    Base_List(Node<I_DONT_KNOW> *node) {
+    Base_List(Node<I_WANT_TO_SLEEP> *node) {
       next = NULL;
-      data = new Linked_List<I_DONT_KNOW>(node);
+      data = new Linked_List<I_WANT_TO_SLEEP>(node);
     }
 
-    void add(Base_List<I_DONT_KNOW> *current, Node<I_DONT_KNOW> *node) {
-      Base_List<I_DONT_KNOW> *exist = find(current, node -> data);
+    void add(Base_List<I_WANT_TO_SLEEP> *current, Node<I_WANT_TO_SLEEP> *node) {
+      Base_List<I_WANT_TO_SLEEP> *exist = find(current, node -> data);
       if(exist) {
         exist -> getData() -> add(node);
       }else {
-        Base_List<I_DONT_KNOW> *Blist = new Base_List<I_DONT_KNOW>(node);
+        Base_List<I_WANT_TO_SLEEP> *Blist = new Base_List<I_WANT_TO_SLEEP>(node);
         while(current -> getNext()) {
           current = current -> getNext();
         }
@@ -70,7 +70,7 @@ class Base_List {
       }
     }
 
-    Base_List<I_DONT_KNOW> *find(Base_List<I_DONT_KNOW> *current, I_DONT_KNOW data) {
+    Base_List<I_WANT_TO_SLEEP> *find(Base_List<I_WANT_TO_SLEEP> *current, I_WANT_TO_SLEEP data) {
       current = current -> getNext();
       while(current) {
         if(current -> getData() -> getHead() -> data == data) {
@@ -81,7 +81,7 @@ class Base_List {
       return NULL;
     }
 
-    void literal(Base_List<I_DONT_KNOW> *current) {
+    void literal(Base_List<I_WANT_TO_SLEEP> *current) {
       current = current -> getNext();
       while (current) {
         current -> getData() -> literal();
@@ -89,33 +89,33 @@ class Base_List {
         cout << endl;
       }
     }
-    Base_List<I_DONT_KNOW> *getNext() {
+    Base_List<I_WANT_TO_SLEEP> *getNext() {
       return next;
     }
-    void setNext(Base_List<I_DONT_KNOW> *next) {
+    void setNext(Base_List<I_WANT_TO_SLEEP> *next) {
       this -> next = next;
     }
 
-    Linked_List<I_DONT_KNOW> *getData() {
+    Linked_List<I_WANT_TO_SLEEP> *getData() {
       return data;
     }
 
   private:
-    Base_List<I_DONT_KNOW> *next;
-    Linked_List<I_DONT_KNOW> *data;
+    Base_List<I_WANT_TO_SLEEP> *next;
+    Linked_List<I_WANT_TO_SLEEP> *data;
 };
 
 
-template <class TREE>
+template <class ZZzzz>
 class Tree {
 public:
   Tree() {}
 	Tree(int amount) {
 		root = NULL;
-    //cout<<typeid(TREE).name();
+    //cout<<typeid(ZZzzz).name();
 	}
-	void insert(TREE data) {
-    Node<TREE> *node = new Node<TREE>(data, NULL, NULL);
+	void insert(ZZzzz data) {
+    Node<ZZzzz> *node = new Node<ZZzzz>(data, NULL, NULL);
 		insert(&root, node, 0);
 	}
   // ======
@@ -124,14 +124,14 @@ public:
       return;
     }
     // Create an empty queue for level order traversal
-    queue<Node<TREE> *> q;
+    queue<Node<ZZzzz> *> q;
 
     // Enqueue Root and initialize height
     q.push(root);
 
     while (q.empty() == false) {
       // Print front of queue and remove it from queue
-      Node<TREE> *node = q.front();
+      Node<ZZzzz> *node = q.front();
       if(list) {
         list -> add(list, node);
       }
@@ -152,8 +152,8 @@ public:
     }
 	}
 private:
-	Node<TREE> *root;
-	void insert(Node<TREE> **r, Node<TREE> *n, int lev) {
+	Node<ZZzzz> *root;
+	void insert(Node<ZZzzz> **r, Node<ZZzzz> *n, int lev) {
 		if(*r == NULL) {
       n -> level = lev;
       *r = n;
