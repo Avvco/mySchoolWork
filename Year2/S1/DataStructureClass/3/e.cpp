@@ -119,7 +119,7 @@ public:
 		insert(&root, node, 0);
 	}
   // ======
-	void levelorder(Base_List<int> *list = NULL) {
+	void levelorder(Base_List<ZZzzz> *list = NULL) {
     if (root == NULL) {
       return;
     }
@@ -170,20 +170,23 @@ private:
 int main(int argc, char const *argv[]) {
   srand(time(NULL));
   Tree<int> *tree = new Tree<int>();
-  for(int j = 0 ; j < 30 ; j ++) {
+  for(int j = 0 ; j < 50 ; j ++) {
     if(j<5) {
-      tree -> insert(99);
+      tree -> insert(rand());
     }else if(j<7) {
       tree -> insert(55);
     }else if(j<10) {
       tree -> insert(77);
     }else if(j<16) {
       tree -> insert(33);
+    }else if(j<20) {
+      tree -> insert(999);
     }else {
       tree -> insert(rand());
     }
   }
 	tree -> levelorder();
+  cout<<endl;
   Base_List<int> *list = new Base_List<int>();
   tree -> levelorder(list);
   list -> literal(list);
