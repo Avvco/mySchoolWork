@@ -109,7 +109,9 @@ class Base_List {
 template <class ZZzzz>
 class Tree {
 public:
-  Tree() {}
+  Tree() {
+    root = NULL;
+  }
 	Tree(int amount) {
 		root = NULL;
     //cout<<typeid(ZZzzz).name();
