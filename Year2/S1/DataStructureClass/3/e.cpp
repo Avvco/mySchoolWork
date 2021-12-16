@@ -35,7 +35,7 @@ class Linked_List {
     void literal() {
       Node<I_AM_TIRED> *current = head;
       while(current) {
-        cout << head -> data << " ";
+        cout << current -> data << " ";
         current = current -> next;
       }
     }
