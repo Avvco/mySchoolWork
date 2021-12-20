@@ -346,7 +346,7 @@ private:
 	}
   void postorder(TreeNode<T> *current) {
 		for (size_t i = 0 ; i < current -> size() ; i++) {
-			preorder((*current)[i]);
+			postorder((*current)[i]);
 		}
 		cout << current -> getData() << endl;
 	}
