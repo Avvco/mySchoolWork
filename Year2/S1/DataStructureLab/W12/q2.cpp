@@ -345,7 +345,7 @@ private:
 	}
   void postorder(TreeNode<T> *current) {
 		for (size_t i = 0 ; i < current -> size() ; i++) {
-			preorder((*current)[i]);
+			postorder((*current)[i]);
 		}
 		cout << current -> getData() << endl;
 	}
@@ -419,7 +419,7 @@ public:
         BinaryTreeNode<T> *_node;
         try {
           _node = new BinaryTreeNode<T>((*(current.first))[i]->getData());
-        }catch (std::invalid_argument e) {
+        } catch (std::invalid_argument e) {
           break;
         }
         if(i != 0) {
