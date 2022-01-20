@@ -1,38 +1,45 @@
-// problem at line 231, reason unknow
-
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
 #include <ctime>
-
+#include <queue>
+#include <map>
 using namespace std;
 
 template <class T>
-class Node {
+class Node
+{
 public:
-	Node() {
+	Node()
+	{
 		data = new T;
 	}
-	Node(T d) {
+	Node(T d)
+	{
 		data = new T;
 		(*data) = d;
 	}
-	Node &operator=(T d) {
+	Node &operator=(T d)
+	{
 		(*data) = d;
 		return *this;
 	}
-	friend std::ostream &operator<<(std::ostream &out, Node n) {
+	friend std::ostream &operator<<(std::ostream &out, Node n)
+	{
 		out<<*(n.data);
 		return out;
 	}
-	friend std::ostream &operator<<(std::ostream &out, Node *n) {
+	friend std::ostream &operator<<(std::ostream &out, Node *n)
+	{
 		out<<*(n->data);
 		return out;
 	}
-	void setData(T d) {
+	void setData(T d)
+	{
 		*data = d;
 	}
-	T &getData() const {
+	T &getData() const
+	{
 		return *data;
 	}
 protected:
@@ -40,37 +47,47 @@ protected:
 };
 
 template<class T>
-class ListNode : public Node<T> {
+class ListNode : public Node<T>
+{
 public:
-	ListNode() : Node<T>() {
+	ListNode() : Node<T>()
+	{
 		prev = NULL;
 		next = NULL;
 	}
-	ListNode(T d) : Node<T>(d) {
+	ListNode(T d) : Node<T>(d)
+	{
 		prev = NULL;
 		next = NULL;
 	}
-	ListNode(ListNode *p, ListNode *n) : Node<T>() {
+	ListNode(ListNode *p, ListNode *n) : Node<T>()
+	{
 		prev = p;
 		next = n;
 	}
-	ListNode(T d, ListNode *p, ListNode *n) : Node<T>(d) {
+	ListNode(T d, ListNode *p, ListNode *n) : Node<T>(d)
+	{
 		prev = p;
 		next = n;
 	}
-	ListNode *getNext() const {
+	ListNode *getNext() const
+	{
 		return next;
 	}
-	ListNode *getPrev() const {
+	ListNode *getPrev() const
+	{
 		return prev;
 	}
-	void setNext(ListNode *n) {
+	void setNext(ListNode *n)
+	{
 		next = n;
 	}
-	void setPrev(ListNode *p) {
+	void setPrev(ListNode *p)
+	{
 		prev = p;
 	}
-	ListNode &operator=(T d) {
+	ListNode &operator=(T d)
+	{
 		this->setData(d);
 		return *this;
 	}
@@ -79,163 +96,199 @@ private:
 };
 
 template<class T>
-class LinkList {
+class LinkList
+{
 public:
-	LinkList() {
+	LinkList()
+	{
 		head = NULL;
 		tail = NULL;
 	}
-	void addFromHead(T d) {
-    cout<<"qq";
+	void addFromHead(T d)
+	{
 		ListNode<T> *node = new ListNode<T>(d);
-		if(head != NULL) {
+		if(head != NULL)
+		{
 			head->setPrev(node);
 		}
-
 		node->setNext(head);
 		head = node;
-		if(tail == NULL) {
-      tail = node;
-    }
+		if(tail == NULL)
+			tail = node;
+        size++;
 	}
-	void addFromTail(T d) {
+	void addFromTail(T d)
+	{
 		ListNode<T> *node = new ListNode<T>(d);
-		if(tail != NULL) {
+		if(tail != NULL)
+		{
 			tail->setNext(node);
 		}
 		node->setPrev(tail);
 		tail = node;
-		if(head == NULL) {
-      head = node;
-    }
+		if(head == NULL)
+			head = node;
+        size++;
 	}
-	void addAfter(ListNode<T> *at, T d) {
-		if(!exist(at)) return;
+	void addAfter(ListNode<T> *at, T d)
+	{
+		if(!exist(at))
+			return;
 		ListNode<T> *node = new ListNode<T>(d);
-		if(at->getNext() != NULL) {
-      at->getNext()->setPrev(node);
-    }
+		if(at->getNext() != NULL)
+			at->getNext()->setPrev(node);
 		node->setNext(at->getNext());
 		at->setNext(node);
 		node->setPrev(at);
-		if(node->getNext() == NULL) {
-      tail = node;
-    }
+		if(node->getNext() == NULL)
+			tail = node;
+        size++;
 	}
-	ListNode<T> *removeFromHead() {
+	ListNode<T> *removeFromHead()
+	{
 		ListNode<T> *n = head;
-		if(head != NULL) {
+		if(head != NULL)
+		{
 			head = head->getNext();
-			if(head != NULL) {
-        head->setPrev(NULL);
-      }
-			else {
-        tail = NULL;
-      }
+			if(head != NULL)
+				head->setPrev(NULL);
+			else
+				tail = NULL;
 			n->setNext(NULL);
 		}
+		size--;
 		return n;
 	}
-	ListNode<T> *removeFromTail() {
+	ListNode<T> *removeFromTail()
+	{
 		ListNode<T> *n = tail;
-		if(tail != NULL) {
+		if(tail != NULL)
+		{
 			tail = tail->getPrev();
-			if(tail != NULL) {
-        tail->setNext(NULL);
-      }
-			else {
-        head = NULL;
-      }
+			if(tail != NULL)
+				tail->setNext(NULL);
+			else
+				head = NULL;
 			n->setPrev(NULL);
 		}
+		size--;
 		return n;
 	}
-	ListNode<T> *remove(ListNode<T> *n) {
-		if(!exist(n)) return NULL;
-		if(n == head) return removeFromHead();
-		if(n == tail)	return removeFromTail();
+	ListNode<T> *remove(ListNode<T> *n)
+	{
+		if(!exist(n))
+			return NULL;
+		if(n == head)
+			return removeFromHead();
+		if(n == tail)
+			return removeFromTail();
 		n->getPrev()->setNext(n->getNext());
 		n->getNext()->setPrev(n->getPrev());
 		n->setNext(NULL);
 		n->setPrev(NULL);
+		size--;
 		return n;
 	}
-	ListNode<T> *exist(T d) {
+	ListNode<T> *exist(T d)
+	{
 		ListNode<T> *j = head;
-		while(j != NULL) {
-			if(j->getData() == d) return j;
+		while(j != NULL)
+		{
+			if(j->getData() == d)
+				return j;
 			j = j->getNext();
 		}
 		return NULL;
 	}
-	bool exist(ListNode<T> *n) {
+	bool exist(ListNode<T> *n)
+	{
 		ListNode<T> *j = head;
-		while(j != NULL) {
-			if(j == n) return true;
+		while(j != NULL)
+		{
+			if(j == n)
+				return true;
 			j = j->getNext();
 		}
 		return false;
 	}
-	ListNode<T> &operator[](int i) {
+	ListNode<T> &operator[](int i)
+	{
 		ListNode<T> *j = head;
 		int k;
-		for(k = 0;k < i && j != NULL;k ++) {
-      j = j->getNext();
-    }
-		if(j == NULL) {
-      throw std::invalid_argument("index does not exist.");
-    }
+		for(k = 0;k < i && j != NULL;k ++)
+			j = j->getNext();
+		if(j == NULL)
+			throw std::invalid_argument("index does not exist.");
 		return *j;
 	}
-	void print() const {
+	void print() const
+	{
 		ListNode<T> *j;
 		j = head;
-		while(j != NULL) {
+		while(j != NULL)
+		{
 			std::cout<<(*j)<<" ";
 			j = j->getNext();
 		}
 		std::cout<<std::endl;
 	}
+	int getSize(){
+        return size;
+    }
 protected:
 	ListNode<T> *head, *tail;
+	int size = 0;
 };
 
-template<class T>
-class Stack : LinkList<T> {
+/*template<class T>
+class Stack : LinkList<T>
+{
 public:
-	Stack() : LinkList<T>(){
-
+	Stack() : LinkList<T>()
+	{
 	}
-	void push(T d) {
+	void push(T d)
+	{
 		this->addFromTail(d);
 	}
-	ListNode<T> *pop() {
+	ListNode<T> *pop()
+	{
 		return this->removeFromTail();
 	}
-	bool isEmpty() {
+	bool isEmpty()
+	{
 		return this->head == NULL;
 	}
 private:
-};
+};*/
 
 template<class T>
-class GraphNode : public Node<T> {
+class GraphNode : public Node<T>
+{
 public:
-	GraphNode() :Node<T>() {
+	GraphNode() :Node<T>()
+	{
 		list = new LinkList<T>();
 	}
-	GraphNode(T d) :Node<T>(d) {
+	GraphNode(T d) :Node<T>(d)
+	{
 		list = new LinkList<GraphNode<T> *>();
 	}
-	void addLink(GraphNode<T> *node) {
-		list->addFromHead(node); // dead here, reason unknow
+	void addLink(GraphNode<T> *node)
+	{
+		list->addFromTail(node);
 	}
-	bool exist(GraphNode<T> *node) {
-		if(list->exist(node)) return true;
+	bool exist(GraphNode<T> *node)
+	{
+		if(list->exist(node))
+			return true;
 		return false;
 	}
-	void remove(GraphNode<T> *node) {
-
+	GraphNode<T> *getNode(int index){
+        return (*list)[index].getData();
+	}
+	int _getSize(){
+        return list->getSize();
 	}
 private:
 	LinkList<GraphNode<T> *> *list;
@@ -243,47 +296,59 @@ private:
 
 
 template<class T>
-class Graph {
+class Graph
+{
 public:
-	Graph() {
+	Graph()
+	{
 		vertex = new LinkList<GraphNode<T> *>();
 		count = 0;
 	}
-	GraphNode<T> *addVertex(T d) {
+	GraphNode<T> *addVertex(T d)
+	{
 		GraphNode<T> *node = new GraphNode<T>(d);
 		vertex->addFromTail(node);
 		count ++;
 		return node;
 	}
-	void addLink(GraphNode<T> *node1, GraphNode<T> *node2) {
+	void addLink(GraphNode<T> *node1, GraphNode<T> *node2)
+	{
 		node1->addLink(node2);
 		node2->addLink(node1);
+        graph_edge++;
 	}
-	bool isLinked(GraphNode<T> *node1, GraphNode<T> *node2) {
+	bool isLinked(GraphNode<T> *node1, GraphNode<T> *node2)
+	{
 		return node1->exist(node2);
 	}
-	GraphNode<T> *operator[](char i) {
-		try {
+	GraphNode<T> *operator[](char i)
+	{
+		try
+		{
 			int j = 0;
-			while(1) {
-				if((*vertex)[j].getData()->getData() == i) return (*vertex)[j].getData();
-				j++;
+			while(1)
+			{
+				if((*vertex)[j].getData()->getData() == i)
+					return (*vertex)[j].getData();
+				j ++;
 			}
 		}
-		catch(std::invalid_argument e) {
+		catch(std::invalid_argument e)
+		{
 			return NULL;
 		}
 	}
-	void adjMatrix() {
+	void adjMatrix()
+	{
 		int j, k;
-		for(j = 0;j < count;j ++) {
-			for(k = 0;k < count;k ++) {
-				if(isLinked((*vertex)[j].getData(), (*vertex)[k].getData())) {
-          std::cout<<"1";
-        }
-				else {
-          std::cout<<"0";
-        }
+		for(j = 0;j < count;j ++)
+		{
+			for(k = 0;k < count;k ++)
+			{
+				if(isLinked((*vertex)[j].getData(), (*vertex)[k].getData()))
+					std::cout<<"1";
+				else
+					std::cout<<"0";
 			}
 			std::cout<<std::endl;
 		}
@@ -291,23 +356,52 @@ public:
 	/*
 		return true if this graph is a forest, return false if not.
 	*/
-	bool isForest() {
-		return true;
+	bool isForest()
+	{
+        map<GraphNode<T>*, int> color; //-1:not be visited, 0:visited
+        for(int i=0;i<count;i++){
+            color[(*vertex)[i].getData()] = -1;
+        }
+        queue<GraphNode<T>* > q;
+        int tree_edge = 0;
+        for(int i=0;i<count;i++){
+            if(color[(*vertex)[i].getData()]==-1){
+                color[(*vertex)[i].getData()] = 0;
+                q.push((*vertex)[i].getData());
+                while(!q.empty()){
+                    GraphNode<T> *cur = q.front();
+                    for(int j=0;j<cur->_getSize();j++){
+                        if(isLinked(cur, cur->getNode(j)) && color[cur->getNode(j)]==-1){
+                            color[cur->getNode(j)] = 0; //visited
+                            tree_edge++;
+                            q.push(cur->getNode(j));
+                        }
+                    }
+                    q.pop();
+                }
+            }
+        }
+        if(graph_edge > tree_edge){//has cycle->not forest
+            return false;
+        }
+        else{
+            return true; //not cycle->is forest
+        }
 	}
 private:
 	LinkList<GraphNode<T> *> *vertex;
-	int count;
+	int count = 0, graph_edge = 0;
 };
 
-int main() {
+int main()
+{
 	Graph<char> *g = new Graph<char>();
 	int m = 0, n = 0;
 	char s, d;
 	std::cin>>m>>n;
 	int j;
-	for(j = 0;j < m;j++) {
-    g->addVertex(j + 'A');
-  }
+	for(j = 0;j < m;j++)
+		g->addVertex(j + 'A');
 	for(j = 0;j < n;j ++)
 	{
 		std::cin>>s>>d;
