@@ -63,8 +63,11 @@ double DnC(int L, int R)
 
     sort(tmp, tmp + idx, cmp2);
 
-    FOR(i, 0, idx) FOR(j, 1, 4 && i + j < idx) d = min(dist(tmp[i], tmp[i + j]), d);
-
+    for (int i = 0; i < idx; i++) {
+      for (int j = 1; j < 4 and i + j < idx; j++) {
+         d = min(dist(tmp[i], tmp[i + j]), d);
+      }
+    }
     return d;
 }
 
