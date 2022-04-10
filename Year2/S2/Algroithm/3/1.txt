@@ -1,0 +1,11 @@
+10 100
+50 apple 20
+40 banana 10
+80 grape 55
+10 tomato 40
+20 orange 20
+75 blueberry 50
+60 watermelon 60
+70 peach 30
+100 strawberry 100
+90 guava 80
