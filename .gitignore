@@ -2,4 +2,3 @@
 test.*
 
 .vscode/*
-!.vscode/settings.json
