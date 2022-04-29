@@ -45,8 +45,6 @@ string combine(string s1, string s2) {
       if(!overlapFound) overlapEndIndex = 0;
     }
   }
-  
-   
   //cout<<s1<<" " << s2 << " " <<_s1 << " " << _s1f << " " << overlapEndIndex <<endl;
   return _s1f + _s1 + s2.substr(overlapEndIndex, s2.length());
 }
