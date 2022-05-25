@@ -1,2 +1,3 @@
-# Closure Report:
-https://hackmd.io/@Avvco/SkYE8Jal5
+# Closure Report
+
+<https://hackmd.io/@Avvco/SkYE8Jal5>
