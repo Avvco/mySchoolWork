@@ -1,5 +1,6 @@
 /**
  * Please finish a class "Queue" by the class "LinkedList" you made from the previous question
+ * You can add any function or variable in class "Queue"
  * 
  */
 #include <iostream>
