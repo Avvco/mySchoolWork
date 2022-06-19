@@ -122,7 +122,7 @@ class Stack {
   T top() {}
 
   /**
-   * @return true if stack is empty
+   * @return true if stack is empty, false otherwise
    */
   bool isEmpty() {}
 

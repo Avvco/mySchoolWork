@@ -122,7 +122,7 @@ class Queue {
   T front() {}
 
   /**
-   * @return true if queue is empty
+   * @return true if queue is empty, false otherwise
    */
   bool isEmpty() {}
 
