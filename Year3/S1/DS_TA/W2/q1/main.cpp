@@ -113,5 +113,25 @@ int main() {
   cout << lsInt; // expect (4, 3, 3, 3, 2, 1, 4, 4, 4)
   lsInt->deleteData(2, 2);
   cout << lsInt; // expect (4, 3, 3, 3, 1, 4, 4, 4)
+
+  LinkedList<char> * lsChar = new LinkedList<char>();
+
+  lsChar->addToHead('a');
+  lsChar->addToHead('b');
+  lsChar->addToHead('b');
+  lsChar->addToHead('c');
+  lsChar->addToHead('c');
+  lsChar->addToHead('c');
+  lsChar->addToHead('d');
+  lsChar->addToTail('d');
+  lsChar->addToTail('d');
+  lsChar->addToTail('d');
+
+  cout << lsChar; // expect (d, c, c, c, b, b, a, d, d, d)
+  lsChar->deleteData('b');
+  cout << lsChar; // expect (d, c, c, c, b, a, d, d, d)
+  lsChar->deleteData('b', 2);
+  cout << lsChar; // expect (d, c, c, c, a, d, d, d)
+
   return 0;
 }
