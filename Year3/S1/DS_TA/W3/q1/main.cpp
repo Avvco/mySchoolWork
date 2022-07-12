@@ -1,4 +1,6 @@
 /**
+ * Arithmetic
+ * 
  * @Description:
  *  Please write a program that reads in an expression and gives its result.
  *  The expression will contain addition, subtraction, multiplication, division, power, and parentheses.

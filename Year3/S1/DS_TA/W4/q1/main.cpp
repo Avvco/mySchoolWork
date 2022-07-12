@@ -1,4 +1,6 @@
 /**
+ * BigDecimal
+ * 
  * @Description:
  * Please finish the class "BigDecimal"
  * You can add any function or variable in class "BigDecimal" if you want.

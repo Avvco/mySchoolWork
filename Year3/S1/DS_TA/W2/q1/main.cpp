@@ -1,4 +1,6 @@
 /**
+ * Linked List
+ * 
  * Please finish a class "LinkedList" by the class "Node".
  * You can add any function or variable in class "LinkedList" and class "Node".
  * 

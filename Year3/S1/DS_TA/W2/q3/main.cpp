@@ -1,4 +1,6 @@
 /**
+ * Stack
+ * 
  * Please finish a class "Stack" by the class "LinkedList" you made from the previous question
  * You can not add any function or variable in class "Stack"
  * 
