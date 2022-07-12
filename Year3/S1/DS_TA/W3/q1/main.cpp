@@ -20,7 +20,7 @@
  * Expressions end up with line-break or end-of-file.
  * 
  * @Output Description
- * Result of the expression, "ERROR" when parentheses count does not match or operation error, ending with a "\n" of each line
+ * Result of the expression to the 2nd decimal place, "ERROR" when parentheses count does not match or operation error, ending with a "\n" of each line
  * 
  */ 
 
