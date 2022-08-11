@@ -9,6 +9,7 @@
  * 
  * Rounding rule:
  * Banker's rounding
+ * Reference: https://www.calculatorsoup.com/calculators/math/rounding-methods-calculator.php
 
  * Symbol example:
  * addition: "+"
