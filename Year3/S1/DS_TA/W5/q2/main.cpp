@@ -1,8 +1,8 @@
 /**
- * BinaryTree II
+ * Binary Search Tree II
  * 
  * @Description:
- * Please finish the class "BinaryTree" and use it in the main function
+ * Please finish the class "BinarySearchTree" and use it in the main function
  * You can add any function or variable if you want.
  * 
  * @Input Description
@@ -23,7 +23,7 @@
 using namespace std;
 
 /**
- * A TreeNode class of binaryTree class
+ * A TreeNode class of binarySearchTree class
  */
 template<class T>
 class TreeNode {
@@ -36,10 +36,10 @@ class TreeNode {
 };
 
 /**
- * A binaryTree abstract class for BinaryTree class
+ * A binarySearchTree abstract class for BinarySearchTree class
  */
 template<class T>
-class binaryTree {
+class binarySearchTree {
   public:
     /**
      * Preorder traversal of the tree
@@ -97,7 +97,7 @@ class binaryTree {
 };
 
 template<class T>
-class BinaryTree : binaryTree<T> {
+class BinarySearchTree : binarySearchTree<T> {
   
 };
 

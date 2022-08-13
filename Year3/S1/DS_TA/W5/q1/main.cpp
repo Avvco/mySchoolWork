@@ -1,8 +1,8 @@
 /**
- * BinaryTree I
+ * Binary Search Tree I
  * 
  * @Description:
- * Please finish the class "BinaryTree"
+ * Please finish the class "BinarySearchTree"
  * You can add any function or variable if you want.
  * 
  * @Input Description
@@ -17,7 +17,7 @@
 using namespace std;
 
 /**
- * A TreeNode class of binaryTree class
+ * A TreeNode class of binarySearchTree class
  */
 template<class T>
 class TreeNode {
@@ -30,10 +30,10 @@ class TreeNode {
 };
 
 /**
- * A binaryTree abstract class for BinaryTree class
+ * A binarySearchTree abstract class for BinarySearchTree class
  */
 template<class T>
-class binaryTree {
+class binarySearchTree {
   public:
     /**
      * Print preorder traversal of the tree
@@ -83,7 +83,7 @@ class binaryTree {
 };
 
 template<class T>
-class BinaryTree : binaryTree<T> {
+class BinarySearchTree : binarySearchTree<T> {
   public:
     void preorder()  {
 
@@ -116,28 +116,28 @@ class BinaryTree : binaryTree<T> {
 
 
 int main() {
-  BinaryTree<int> *bt = new BinaryTree<int>();
-  bt->setRoot(41);
-  bt->insert(20);
-  bt->insert(65);
-  bt->insert(11);
-  bt->insert(29);
-  bt->insert(32);
-  bt->insert(50);
-  bt->insert(91);
-  bt->insert(99);
-  bt->insert(72);
-  bt->insert(19);
-  bt->insert(49);
-  bt->insert(64);
-  bt->insert(5);
-  bt->insert(10);
-  bt->insert(1);
+  BinarySearchTree<int> *bst = new BinarySearchTree<int>();
+  bst->setRoot(41);
+  bst->insert(20);
+  bst->insert(65);
+  bst->insert(11);
+  bst->insert(29);
+  bst->insert(32);
+  bst->insert(50);
+  bst->insert(91);
+  bst->insert(99);
+  bst->insert(72);
+  bst->insert(19);
+  bst->insert(49);
+  bst->insert(64);
+  bst->insert(5);
+  bst->insert(10);
+  bst->insert(1);
 
-  bt->preorder();
-  bt->inorder();
-  bt->postorder();
-  bt->levelorder();
+  bst->preorder();
+  bst->inorder();
+  bst->postorder();
+  bst->levelorder();
 
   return 0;
 }
