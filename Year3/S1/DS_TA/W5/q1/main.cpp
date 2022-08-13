@@ -3,7 +3,7 @@
  * 
  * @Description:
  * Please finish the class "BinaryTree"
- * You can add any function or variable in the class "BinaryTree" if you want.
+ * You can add any function or variable if you want.
  * 
  * @Input Description
  * NONE
