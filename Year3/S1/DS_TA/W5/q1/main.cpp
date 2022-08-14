@@ -83,7 +83,7 @@ class binarySearchTree {
 };
 
 template<class T>
-class BinarySearchTree : binarySearchTree<T> {
+class BinarySearchTree : public binarySearchTree<T> {
   public:
     void preorder()  {
 
