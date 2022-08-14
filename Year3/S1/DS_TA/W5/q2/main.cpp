@@ -44,7 +44,7 @@ class binarySearchTree {
     /**
      * Preorder traversal of the tree
      */
-    virtual vod preorder() = 0;
+    virtual void preorder() = 0;
 
     /**
      * Inorder traversal of the tree
