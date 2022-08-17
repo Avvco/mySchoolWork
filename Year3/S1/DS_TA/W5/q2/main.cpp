@@ -15,7 +15,7 @@
  *  
  * 
  * @Output Description
- * Result of the serialized tree after add and delete, no space between and ending with a "\n" of each line.
+ * Result of the serialized tree after add, no space between and ending with a "\n" of each line.
  */
 
 #include <iostream>
