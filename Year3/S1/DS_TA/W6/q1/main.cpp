@@ -173,6 +173,13 @@ class Tree {
     virtual bool remove(D data) = 0;
 
     /**
+     * Find a node with the given data if it exists.
+     * @param data data to insert
+     * @return true if the node is found, false if the node is not found
+     */
+    virtual bool search(D data) = 0;
+
+    /**
      * Set the Root object
      * @param root to set to root
      */
