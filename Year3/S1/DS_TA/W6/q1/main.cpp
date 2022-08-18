@@ -120,7 +120,7 @@ class TreeNode {
 
     /**
      * @brief Set the Parent
-     * @param parent to sert
+     * @param parent to set
      */
     virtual void setParent(TreeNode<T>* parent) = 0;
 
