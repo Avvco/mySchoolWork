@@ -151,7 +151,7 @@ class TreeNode {
  * A abstract class for tree
  * 
  * @tparam T Stored data in each node of the tree
- * @tparam D Data type that is used to insert and remove.
+ * @tparam D Data type that is used to insert, remove and search.
  */
 template<class T, class D>
 class Tree {
