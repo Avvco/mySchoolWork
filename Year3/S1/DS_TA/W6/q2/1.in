@@ -1,0 +1,14 @@
+{"root":{"children":[{"children":[{"data":"data of CP","path":"cp","type":"file"},{"data":"password is not here","path":"pwd","type":"file"}],"path":"bin","type":"dir"},{"children":[],"path":"dev","type":"dir"},{"children":[{"data":"This is not a password either.","path":"passwd","type":"file"}],"path":"etc","type":"dir"},{"children":[{"children":[{"children":[],"path":"bar","type":"dir"},{"children":[],"path":"foo","type":"dir"}],"path":"mthomas","type":"dir"},{"children":[{"data":"barbar barbar batbat","path":"bar","type":"file"},{"data":"foofoo","path":"foo","type":"file"}],"path":"mthomass","type":"dir"},{"children":[{"children":[{"data":"","path":"home","type":"file"}],"path":"home","type":"dir"}],"path":"stuff","type":"dir"}],"path":"home","type":"dir"},{"children":[{"children":[],"path":"environment.d","type":"dir"},{"children":[],"path":"jvm","type":"dir"},{"children":[],"path":"kernel","type":"dir"},{"children":[],"path":"openssh","type":"dir"},{"children":[],"path":"python3.9","type":"dir"},{"children":[],"path":"x86_64-linux-gnu","type":"dir"}],"path":"lib","type":"dir"},{"children":[],"path":"mnt","type":"dir"},{"children":[],"path":"proc","type":"dir"},{"children":[],"path":"root","type":"dir"},{"children":[],"path":"tmp","type":"dir"},{"children":[{"children":[],"path":"bin","type":"dir"},{"children":[],"path":"src","type":"dir"}],"path":"usr","type":"dir"}],"path":"/","type":"dir"}}
+cp /home /tmp
+mkdir /lib/python3.8/python
+mv /bin/cd /usr/bin
+touch /lib/environment.d/environment/environment this is environment in /lib/environment.d/environment/environment
+touch /home/stuff/home/home this is home in /home/stuff/home/home
+rm /home/mthomas
+touch /lib/python3/python.py print('hello python3')
+mkdir /root
+rm /rooot
+mkdir /bin/cp/cp
+touch /bin/pwdd Thisssss is not password.
+cp /abc /def
+mv /tmp/home/home /usr/home
