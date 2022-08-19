@@ -207,7 +207,10 @@ class Tree {
      */
     virtual string serialize() = 0;
   protected:
-    LinkedList<TreeNode<T>*>* root;
+  /**
+   * First layer of the tree will be the children of root
+   */
+    TreeNode<T>* root;
 };
 
 template<class T>
@@ -216,10 +219,10 @@ class GeneralTreeNode : public TreeNode<T> {
 };
 
 template<class T, class D>
-class GeneralTree : public Tree<T,D> {
+class GeneralTree : public Tree<T, D> {
   public:
     GeneralTree() {
-      TreeNode<T>* node = new GeneralTreeNode<T>();
+       this -> root = new GeneralTreeNode<T>();
     }
 };
 
