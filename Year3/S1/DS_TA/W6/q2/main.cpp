@@ -29,14 +29,14 @@
  * <source> and <destination> are both absolute pathnames.
  * <data> is a string, could be empty.
  * 
- * Serilized property of node for File:
+ * Serialized property of node for File:
  * {
  *  "data":"<data for the file>",
  *  "path":"<relative pathnames for this node>",
  *  "type":"file"
  * }
  * 
- * Serilized property of node for Directory:
+ * Serialized property of node for Directory:
  * {
  *  "children":[<children of this node>],
  *  "path":"<relative pathnames for this node>",
@@ -47,11 +47,11 @@
  * Note: You must use your own "GeneralTree" class or you will get up to 0 points.
  * 
  * @Input Description
- * The first line of input is the serilized string of the GeneralTree.
+ * The first line of input is the serialized string of the GeneralTree.
  * The following line til the end will be the operations, one operation per line.
  * 
  * @Output Description
- * A serizlied string of the GeneralTree after operations with a "\n" .
+ * A serialized string of the GeneralTree after operations with a "\n".
  */
 
 #include <iostream>
