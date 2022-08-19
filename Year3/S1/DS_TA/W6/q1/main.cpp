@@ -183,7 +183,7 @@ class Tree {
      * Set the Root object
      * @param root to set to root
      */
-    virtual void setRoot(LinkedList<TreeNode<T>*>* root) = 0;
+    virtual void setRoot(TreeNode<T>* root) = 0;
 
 
     /**
