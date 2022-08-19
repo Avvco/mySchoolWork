@@ -1,0 +1,7 @@
+{"root":{"children":[{"children":[{"data":"this is script","path":"script","type":"file"}],"path":"bin","type":"dir"},{"children":[],"path":"tmp","type":"dir"},{"children":[],"path":"usr","type":"dir"}],"path":"/","type":"dir"}}
+mkdir /usr/bin/systemctl
+touch /tmp/tmp this is tmp tmp
+rm /user
+rm /bin/script
+cp /usr /tmp
+mv /tmp/usr/bin/systemctl /bin
