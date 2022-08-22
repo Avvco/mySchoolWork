@@ -11,4 +11,4 @@ rm /rooot
 mkdir /bin/cp/cp
 touch /bin/pwdd Thisssss is not password.
 cp /abc /def
-mv /tmp/home/home /usr/home
+mv /tmp/home/stuff/home /usr/home
