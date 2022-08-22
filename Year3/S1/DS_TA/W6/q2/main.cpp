@@ -8,11 +8,11 @@
  * 
  * There are five operations you need to do:
  * 1. mv <source> <destination>
- *  - move the file or directory from <source> to under <destination>
+ *  - move the file or the entire directory from <source> to under <destination>
  *  - Replace the files of <destination> if it exists
  *  - Cancel operation if <source> does not exist.
  * 2. cp <source> <destination>
- *  - copy the file or directory from <source> to under <destination>
+ *  - copy the file or the entire directory from <source> to under <destination>
  *  - Replace the files of <destination> if it exists
  *  - Cancel operation if <source> does not exist.
  * 3. rm <destination>
