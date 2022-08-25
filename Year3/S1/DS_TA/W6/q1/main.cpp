@@ -112,26 +112,25 @@ template<class T>
 class TreeNode {
   public:
     /**
-     * @brief Get the Parent
-     * 
+     * Get the Parent
      * @return TreeNode<T>* parent
      */
     virtual TreeNode<T>* getParent() = 0;
 
     /**
-     * @brief Set the Parent
+     * Set the Parent
      * @param parent to set
      */
     virtual void setParent(TreeNode<T>* parent) = 0;
 
     /**
-     * @brief Get the Children
+     * Get the Children
      * @return LinkedList<TreeNode<T>*>* children
      */
     virtual LinkedList<TreeNode<T>*>* getChildren() = 0;
 
     /**
-     * @brief Set the Children
+     * Set the Children
      * @param children to set
      */
     virtual void setChildren(LinkedList<TreeNode<T>*>* children) = 0;
@@ -156,7 +155,25 @@ class TreeNode {
 template<class T, class D>
 class Tree {
   public:
+    /**
+     * Levelorder traversal of the tree
+     */
     virtual void levelorder() = 0;
+
+    /**
+     * Inorder traversal of the tree
+     */
+    virtual void inorder() = 0;
+
+    /**
+     * Preorder traversal of the tree
+     */
+    virtual void preorder() = 0;
+
+    /**
+     * Postorder traversal of the tree
+     */
+    virtual void postorder() = 0;
 
     /**
      * Insert a node to the tree with the given data if it not exists.
@@ -174,10 +191,10 @@ class Tree {
 
     /**
      * Find a node with the given data if it exists.
-     * @param data data to insert
-     * @return true if the node is found, false if the node is not found
+     * @param data data to search
+     * @return the node if found, NULL if not found
      */
-    virtual bool search(D data) = 0;
+    virtual TreeNode<T>* search(D data) = 0;
 
     /**
      * Set the Root object
