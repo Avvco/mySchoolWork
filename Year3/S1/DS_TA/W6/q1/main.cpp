@@ -4,7 +4,7 @@
  * @Description:
  * Please finish the class "GeneralTree" and use it in the main function to fulfill the request.
  * You can add any function or variable if you want.
- * Note: You must use your own "GeneralTree" class or you will get up to 0 points.
+ * Note: You must use your own "GeneralTree", "GeneralTreeNode" and "LinkedList" class or you will get up to 0 points.
  * 
  * @Input Description
  * Input starts with two integers n and m, followed by the n line. Each line is a word, use GeneralTree to create a trie with the n word. Next m line, each line is a word, check if the word exists in the trie.
@@ -202,16 +202,6 @@ class Tree {
      */
     virtual void setRoot(TreeNode<T>* root) = 0;
 
-
-    /**
-     * Rules for Serialize and Deserialize:
-     * 1. The serialized string should be in the following format which is standard JSON format but without any spaces:
-     * {"root":{"data":"","children":[{"data":"a","children":[{"data":"d","children":[]},{"data":"p","children":[]}]},{"data":"b","children":[]}]}}
-     * 
-     * 2. All nodes in the same layer should be sorted in alphabetical order if is a character type, and sorted by numerical order if is a number type.
-     * 3. LinkedList is treated as Array in serialization and deserialization.
-     */
-
     /**
      * Deserialize the string to a tree with levelorder traversal
      * @param tree to be deserialized
@@ -234,6 +224,22 @@ template<class T>
 class GeneralTreeNode : public TreeNode<T> {
 
 };
+
+
+/**
+ * Rules of Serialize and Deserialize for General Tree:
+ * 1. The serialized string should be in the following format which is standard JSON format but without any spaces:
+ * {"root":{"children":[{"children":[{"children":[],"data":"d"},{"children":[],"data":"p"}],"data":"a"},{"children":[],"data":"b"}],"data":""}}
+ * In each node, there are two data structures.
+ *  a. children.
+ *  b. data.
+ * "children" is an array that always comes first.
+ * "data" is a data structure stored in the node, that comes after children, sorted in alphabetical order.
+ * 
+ * 2. All nodes in the same layer should be sorted in alphabetical order if is a character type, and sorted by numerical order if is a number type.
+ * 3. LinkedList is treated as Array in serialization and deserialization.
+ */
+
 
 template<class T, class D>
 class GeneralTree : public Tree<T, D> {
