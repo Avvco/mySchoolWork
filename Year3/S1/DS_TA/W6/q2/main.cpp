@@ -29,6 +29,8 @@
  * <source> and <destination> are both absolute pathnames.
  * <data> is a string, could be empty.
  * 
+ * There should not have the same name dir and file in the same path.
+ * 
  * Serialized property of node for File:
  * {
  *  "data":"<data for the file>",
@@ -51,7 +53,7 @@
  * The following line til the end will be the operations, one operation per line.
  * 
  * @Output Description
- * A serialized string of the GeneralTree after operations with a "\n".
+ * A serialized string of the GeneralTree after operations with a "\n" in the end.
  */
 
 #include <iostream>
