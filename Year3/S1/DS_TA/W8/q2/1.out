@@ -1,0 +1,4 @@
+earth :: 4
+moon :: 2
+sun :: 3
+Element with key 'earth' not inserted because already existed
