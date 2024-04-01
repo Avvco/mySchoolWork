@@ -2,3 +2,5 @@
 test.*
 *.zip
 .vscode/*
+*.txt
+out
